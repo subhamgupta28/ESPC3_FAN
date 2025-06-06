@@ -78,6 +78,7 @@ void setup()
   Wire.begin(SDA, SCL);
   analogWrite(FAN, speed);
   analogWrite(HEAT_PIN, pwm1);
+  analogWrite(LED, 100);
   attachInterrupt(digitalPinToInterrupt(FAN1), countPulse1, RISING);
 
   pinMode(FAN2, INPUT_PULLUP); // Tachometer signal on pin 2
@@ -107,6 +108,7 @@ void setup()
   } else {
     Serial.println("Didn't find AHT20");
   }
+  analogWrite(LED, 0);
 }
 
 void loop()
